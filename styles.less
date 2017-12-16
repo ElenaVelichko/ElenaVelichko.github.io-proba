@@ -1,0 +1,227 @@
+@colorMain: #ffcc00; // yellow
+@fontFamilySecondary: 'Open Sans', sans-serif;
+@fontFamilyMain: 'Raleway', sans-serif;
+@fontFamilyAccent: 'Roboto', sans-serif;
+@borderWidth: 1px;
+._font(@size: 24px; @weight: bold; @fontFamily: @fontFamilyMain) {
+	font: @weight ~'@{size}/1.2' @fontFamily;
+}
+
+/*.profile {
+  color: @colorMain;
+  ._font(@size: 14px; @fontFamily: @fontFamilyAccent);
+}*/
+
+/* block photo */
+*,
+::before,
+::after {
+	padding: 0;
+	marging: 0;
+	box-sizing: border-box;
+}
+.body{
+	width: 100vw;
+}
+
+
+.photo {
+	display: inline-block;
+	border: @borderWidth solid @colorMain;
+	padding: 15px;
+	position: relative;
+	&::before,
+	&::after {
+		position: absolute;
+		content: '';
+		background: white;
+		z-index: 1;
+		top: -@borderWidth;
+		left: -@borderWidth;
+	}
+	&::before {
+		width: 50%;
+		margin: 0 25%;
+		height: ~'calc(100% + @{borderWidth} * 2)';
+	}
+	&::after {
+		height: 50%;
+		margin: 25% 0;
+		width: ~'calc(100% + @{borderWidth} * 2)';
+	}
+	&_image {
+		position: relative;
+		z-index: 2;
+		display: block;
+		border: @borderWidth solid @colorMain;
+	}
+}
+/* end:block photo */
+/* block header */
+.header {
+	text-align: center;
+	text-transform: uppercase;
+}
+.h2 {
+	._font(@size: 24px; @weight: 400; @fontFamily: @fontFamilyMain);
+	color: #898f8f;
+	margin: 80px 0 10px;
+}
+.h1 {
+	._font(@size: 60px; @weight: 400; @fontFamily: @fontFamilyAccent);
+	color: @colorMain;
+	margin: 10px 0;
+}
+/* end:block header */
+/* block line */
+.line {
+	text-align: center;
+	background: url(icon.png) no-repeat center;
+	margin: 40px auto;
+	height: 20px;
+	position: relative;
+	&::before,
+	&::after {
+		display: inline-block;
+		position: absolute;
+		content: '';
+		width: 210px;
+		height: @borderWidth;
+		background-color:  @colorMain;
+		position: absolute;
+	}
+	&::before {
+		top: 9px;
+		left: ~'calc(100% / 2 - 230px)';
+	}
+	&::after {
+		top: 9px;
+		right:  ~'calc(100% / 2 - 230px)';
+	}
+
+}
+
+/* end:block line */
+/* block main */
+
+
+.section_line {
+		&::before {
+	    display: inline-block;
+	    content: '';
+	    width: 4px;
+	    height: 560px;
+	    background-color: @colorMain;
+		left: -@borderWidth;
+	}
+}
+
+.main {
+	display: flex;
+}
+.section {
+	width: 50%;
+	flex-direction: row;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 430px;
+}
+.profile {
+	margin-left: 85px;
+	text-align: center;
+.h3 {
+	._font(36px; 900; @fontFamilyAccent);
+	color: #666666;
+	position: relative;
+	margin: 35px 0;
+		&::after {
+		position: absolute;
+	    display: block;
+	    content: '';
+	    width: 100px;
+	    height: @borderWidth;
+	    background-color: @colorMain;
+		bottom: -34px;
+		left: ~'calc(100% / 2 - 50px)';
+	}
+}
+.h4 {
+	._font(24px; 400; @fontFamilyMain);
+	color: #666666;
+	padding: 35px 0 0;
+}
+
+.social {
+	font-size: 0;
+	&_item {
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border: 2px solid #d9d9d9;
+		margin: 0 3px 30px 3px;
+		font-size: 14px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 30px;
+		color: #cccccc;
+	}
+}
+}
+.profile_info {
+	._font(14px; 500; @fontFamilyMain);
+	color: #333333;
+	line-height: 24px;
+	position: relative;
+	margin-bottom: 30px;
+		&::after {
+		position: absolute;
+	    display: inline-block;
+	    content: '';
+	    width: 100px;
+	    height: 5px;
+	    background-color: @colorMain;
+		bottom: -34px;
+		left: ~'calc(100% / 2 - 50px)';
+	}
+}
+
+.profile_button {
+	padding-top: 40px;
+}
+
+.button {
+	text-decoration: none;
+	text-transform: uppercase;
+	._font(14px; 700; @fontFamilySecondary);
+	color: #666666;
+	padding: 7px 12px;
+	border: @borderWidth solid @colorMain;
+}
+/* end:block main */
+
+/* end:block pagination */
+.pagination{
+		font-size: 0;
+		text-align: center;
+		margin-top: 40px;
+	&_item {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background-color: @colorMain;
+		margin: 0 5px;
+			&__active {
+			background-color: white;
+			border: 2px solid @colorMain;
+		}
+	}
+}
+
+
+
+
+
+/* end:block pagination */
